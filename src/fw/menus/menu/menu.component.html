@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+<li *ngFor = "let item of menuService.items">
+     <fw-menu-item [item]="item" 
+                   [ngClass]="{'vertical-menu' : menuService.isVertical}"
+                   [parentIsPopup]="false">
+     
+     
+     </fw-menu-item>
+
+      </li>
+    </ul>
+</nav>
+
+<button 
+      *ngIf="!menuService.showingLeftSideMenu"
+      class = "btn btm-sm"
+      [ngClass]="{'horizontal': !menuService.isVertical}"
+      (click)="menuService.toggleMenuOrientation()">
+      <span *ngIf="menuService.isVertcal" class="glyphicon glyphicon-menu-down"></span><!-- buttons not swapping find source of issue -->
+      <span *ngIf="!menuService.isVertcal" class="glyphicon glyphicon-menu-up"></span>
+</button>
